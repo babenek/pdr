@@ -1,9 +1,9 @@
 #!/bin/bash
 
-for file in `find html -regextype posix-extended -regex '.*\.html' | sort`; do
+for file in `find text -regextype posix-extended -regex '.*\.txt' | sort`; do
 echo "add $file"
-	cp "$file" pdr.html
-	git add pdr.html
+	cp "$file" pdr.txt
+	git add pdr.txt
 	git commit -m "$file"
 echo "$file done"
 done
