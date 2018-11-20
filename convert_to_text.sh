@@ -10,6 +10,9 @@ echo "converting $file"
     sed -i 's/&mdash;/-/g' "${file%.html}.txt"
 
 	sed -i "s/'/’/g" "${file%.html}.txt"
+	sed -i 's/”/"/g' "${file%.html}.txt"
+	sed -i 's/”/"/g' "${file%.html}.txt"
+
 
 	sed -i 's/━/-/g' "${file%.html}.txt"
 
