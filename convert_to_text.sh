@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for file in `find html -regextype posix-extended -regex '.*\.html'`; do
+for file in $(find html -regextype posix-extended -regex '.*\.html'); do
 echo "converting $file"
 
 # convert to text
@@ -9,6 +9,10 @@ echo "converting $file"
     sed -i 's/&mdash;/-/g' "${file%.html}.txt"
 
     sed -i 's/---*/--------------------------------------------------------------------------------/g' "${file%.html}.txt"
+
+	sed -i 's/{.*}//g' "${file%.html}.txt"
+
+	gawk -i inplace -v RS="" '{sub(/\{.*\}/,"")}1' "${file%.html}.txt"
 
 # replace nonbreaking space for UTF
     sed -i 's/\xC2\xA0/ /g' "${file%.html}.txt"
