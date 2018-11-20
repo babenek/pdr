@@ -8,6 +8,8 @@ echo "converting $file"
 
     sed -i 's/&mdash;/-/g' "${file%.html}.txt"
 
+    sed -i 's/---*/--------------------------------------------------------------------------------/g' "${file%.html}.txt"
+
 # replace nonbreaking space for UTF
     sed -i 's/\xC2\xA0/ /g' "${file%.html}.txt"
 
