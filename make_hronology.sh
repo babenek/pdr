@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for file in `find html -regextype posix-extended -regex '.*\.html'`; do
+for file in `find html -regextype posix-extended -regex '.*\.html' | sort`; do
 echo "add $file"
 	cp "$file" pdr.html
 	git add pdr.html
